@@ -12,7 +12,13 @@ async function main() {
     const Contractfactory = new ethers.ContractFactory(abi, binary, Wallet);
     console.log("Deploying please wait ");
     const contract = await Contractfactory.deploy();
-    console.log(contract);
+    //console.log(contract);
+    // transcation response=> when you wait for one block to add after your transcation  // deploy transcation => transcation response when you just create a transcation
+    const transcationReciept = await contract.deployTransaction.wait(1);
+    console.log("this is transcationReciept ")
+    console.log(transcationReciept);
+    console.log("this is deployTransaction")
+    console.log(contract.deployTransaction);
 
 
 }
